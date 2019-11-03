@@ -1,0 +1,29 @@
+<?php
+echo "<table id='listeClients'>";
+echo "<tr>";
+echo "<th align='left'>Nom du processus</th>";
+echo "<th align='left'>Description</th>";
+echo "<th></th>";
+echo "</tr>";
+if(count($listeProcessus) > 0){	
+	foreach($listeProcessus as $processus){
+
+		$procLibelle = $processus["procLibelle"];
+		$procId = $processus["procId"];
+		$procDescription = $processus["procDescription"];
+		
+		echo "<tr>";
+		echo "<td>".$procLibelle."</td>";
+		echo "<td>".$procDescription."</td>";
+		echo "<td align='right'><a href='module=processus&action=alter&processus=$procId'>Modifier</a> | ";
+		echo "<a href='module=processus&action=del&processus=$procId'>Supprimer</a></td>";
+		echo "</tr>";
+	}
+	
+}
+else
+	echo "<tr><td>Il n'existe aucun processus.<br/></td></tr>";
+
+echo '<tfoot><td colspan="3"><a href="module=processus&action=add">Créer un processus</a></td></tfoot>';
+echo "</table>";
+?>

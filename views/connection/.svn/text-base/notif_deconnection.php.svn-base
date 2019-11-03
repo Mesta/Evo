@@ -1,0 +1,8 @@
+<?php 
+if($result){
+	echo "Vous avez été déconnecté.";
+}
+else
+	echo "Une erreur est survenue durant la déconnection. Veuillez recommencer."; 
+
+?>

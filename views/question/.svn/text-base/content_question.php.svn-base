@@ -1,0 +1,55 @@
+<?php
+
+if(isConnected()){
+	if($question != null){
+		$mere 		= $question[0]["questMere"];
+		$questId    = $question[0]["questId"];
+		
+		echo "<form action='index.php method='POST'>";
+		echo "<table>";
+		echo "<tr>";
+		echo "<th>";
+		echo dictionnariser($question[0]["questQuestion"]);
+		echo "</th>";
+		echo "</tr>";
+		
+		foreach($reponses as $reponse){
+			$id = $reponse["repId"];
+			$libelle = dictionnariser($reponse["repLibelle"]);
+			
+			echo "<tr>";
+			echo "<td>";
+			echo "<input type='radio' name='reponse' id='$id' value='$id'><label for='$id'>$libelle</label></input>";
+			echo "</td>";
+			echo "</tr>";
+		}
+		echo "<tr>";
+		echo "<td>";
+		echo "<input type='hidden' name='question' value='$questId'/>";
+		echo "<input type='hidden' name='module' value='question'/>";
+		echo "<input type='hidden' name='action' value='repondre'/>";
+		echo "<input type='hidden' name='processus' value='$procId'/>";
+		echo "<input type='submit' value='Valider'/>";
+		if(!$mere){
+			echo "<button onClick='requete(\"module=question&action=rollback&question=$questId&processus=$procId\");return false;'>Retour</button>";
+		}
+		echo "</td>";
+		echo "</tr>";
+		
+		echo "</table>";
+		echo "</form><br/>";
+		echo "<button onClick='requete(\"module=rapport&action=generer&processus=$procId\")'>Générer rapport</button>";
+		echo "<button onClick='requete(\"module=question\")'>Quitter</button>";
+		
+		echo "<script>$('[title]').colorTip({color:'yellow'});</script>";
+	}
+	else{
+		echo "Vous semblez être arrivé au bout du questionnaire. Vous pouvez maintenant éditer le rapport en cliquant sur le bouton suivant : ";
+		echo "<button onClick='requete(\"module=rapport&action=generer&processus=$procId\")'>Générer rapport</button>";
+		echo "<br/>Vous pouvez aussi recommencer le formulaire en cliquant sur le bouton suivant : ";
+		echo "<button onClick='requete(\"module=question&action=resetQuestionnaire&processus=$procId\")'>Recommencer le questionnaire</button>";
+	}
+}
+else
+	echo "Veuillez vous connecter avant de répondre à une questionnaire.";
+?>

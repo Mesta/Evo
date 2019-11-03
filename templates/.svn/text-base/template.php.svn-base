@@ -1,0 +1,54 @@
+<?php ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" Content="text/html; charset=ISO-8859-1" />
+	<title>EvO - Révolutionnez votre système d'info !</title>
+	<meta http-equiv="Content-Language" content="fr" />
+	<link rel="stylesheet" href="css/global.css" type="text/css" media="screen"/>	
+	<link rel="stylesheet" href="css/smoothness/jquery-ui-1.8.21.custom.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="css/colortip-1.0-jquery.css" type="text/css" media="screen"/>
+	
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
+	<script type="text/javascript" src="js/jquery.tools.min.js"></script>
+	<script type="text/javascript" src="js/colortip-1.0-jquery.js"></script>
+	
+	<script  type="text/javascript" src="js/evo.js"></script>	
+</head>
+
+<body>
+	<div id='dialogBox'></div>
+	<div id="notification"><?php if(isset($v_notif)) include $v_notif;?></div>
+	<div id="header">
+
+		<div id='bandeau'>
+			<img height="150px" src="/evo2/images/logo.png"/>
+			<span id='page_titre'>Avec EvO, Révolutionnez votre Système d'Info !</span>
+		</div>
+		<div id='log'>
+			<?php include_once $v_connection;?>
+		</div>
+	</div>	
+	<hr/>
+	
+	<table id='conteneur'>
+		<tr>
+			<td valign="top" width='250px'>
+				<div id='menu'>
+				<?php if(isset($v_menu)) include $v_menu;?>
+				</div>		
+			</td>
+			<td valign="top">
+				<div id='container'>
+					<div class='titre' id='titre_content'><span><?php echo $titre;?></span></div>
+					<div id='sousMenu'></div>
+					<div id='content'><?php include $v_content;?></div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div id='footer'>Miage tout droit reservï¿½ etc</div>
+</body>
+
+</html>
