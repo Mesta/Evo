@@ -1,7 +1,0 @@
-<?php
-if($resultat)
-	echo "Le mot et sa définition ont été correctement enregistrés.";
-else
-	echo "Une erreur est survenue durant la sauvegarde de la définition. Veuillez recommencer.";
-
-echo "<script>requete('module=dictionnaire');fermerDialogBox();</script>";

@@ -1,7 +1,0 @@
-<?php
-if(is_bool($resultat) && !$resultat)
-	echo "Une erreur est survenue durant la création de la question. Veuillez recommencer.";
-elseif(is_numeric($resultat)){
-	echo "La question a bien été crée.";
-	echo "<script>requete('module=question&action=details&processus=$procId&question=$resultat');fermerDialogBox();</script>";
-}

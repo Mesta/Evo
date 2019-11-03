@@ -1,6 +1,0 @@
-<?php 
-if($resultat)
-	echo "Le compte client a été correctement créé.<script>requete('module=client');fermerDialogBox();</script>";
-else
-	echo "Un problème est survenue durant la création du compte client. Veuillez recommencer.";
-?>
